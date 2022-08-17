@@ -1,0 +1,80 @@
+<div class="grid p-6" style="margin-right: 0">
+  <!-- BAND1 SALARY -->
+  <div class="dash-box col-3 content">
+    <a routerLink="/dashboard/reports" >
+     
+      <span class="grid-item-content dashboard-content"
+      >Band 1 Salary <br /></span >
+    <span class="dash-image"><img src="/assets/dashboardimages/salary.png" alt='image'/></span>
+
+  </a>
+
+  
+  </div>
+
+  <div class="dash-box col-3 content">
+
+    <mat-card>
+
+      <mat-card-content>
+
+          <div class="buttoncenter-grd" style="margin-right: 0">
+
+              <button pButton type="button" label="Download Reports" pRipple (click)="downloadFile()" >
+
+                  <mat-icon aria-hidden="false"
+
+                      aria-label="Example download icon"
+
+                      style="font-size: large; margin-top: 8px">
+
+                      download</mat-icon>
+
+              </button>
+
+          <p-toast></p-toast>
+
+   
+
+          </div>    
+
+      </mat-card-content>
+
+    </mat-card>
+  <!-- TARGET BRANCHES -->
+  <!-- <div class="dash-box col-3 content">
+    <a routerLink="/dashboard/reports">
+     
+        <span class="grid-item-content dashboard-content"
+        >Target Branches <br /></span >
+      <span class="dash-image"><img src="/assets/dashboardimages/targetbranch.png"/></span>
+      
+    </a>
+  </div> -->
+  <!-- METHOD MATRIX -->
+  <!-- <div class="dash-box col-3 content">
+    <a routerLink="/dashboard/reports">
+     
+        <span class="grid-item-content dashboard-content"
+        >Method Matrix<br /></span >
+      <span class="dash-image"><img src="/assets/dashboardimages/matrix.png"/></span>
+      
+    </a>
+  </div> -->
+</div>
+
+<!-- <div dash-box col-3 content>
+  <button pButton type="button" label="Download Reports" pRipple (click)="downloadFile()">
+    <mat-icon aria-hidden="false" aria-label="Example download icon" style="font-size: large; margin-top: 8px">
+      download</mat-icon>
+  </button>
+  <p-toast></p-toast>
+</div> -->
+            
+
+<div class="loading">
+  <mat-spinner *ngIf="isLoading | async"></mat-spinner>
+</div>
+
+
+

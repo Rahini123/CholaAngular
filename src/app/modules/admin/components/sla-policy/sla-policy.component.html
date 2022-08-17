@@ -1,0 +1,185 @@
+<form class="p-fluid p-grid">
+  <div class="p-field p-col-12 md:col-12 p-md-3 mb-2 z-0">
+    <span class="p-float-label">
+      <input type="text" id="name" pInputText value="Default SLA Policy" />
+      <label for="name">Name</label>
+    </span>
+  </div>
+  <div class="p-field p-col-12 md:col-12 p-md-3 mb-2 z-0">
+    <span class="p-float-label">
+      <input type="text" id="Description" pInputText value="Default Policy" />
+      <label for="description">Description</label>
+    </span>
+  </div>
+  <div class="p-field p-col-12 md:col-12 p-md-3 mb-2">
+    <label for="description">SLA Targets</label><br />
+    <label
+      ><small>Set Service Level Targets for each ticket priority</small></label
+    >
+  </div>
+  <div class="p-field p-col-12 md:col-12 p-md-3 mb-2">
+    <p-table [value]="policies">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Priority</th>
+          <th>Respond within</th>
+          <th>Resolve within</th>
+          <th>Operational Hrs</th>
+          <th>Escalation Email</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-policies>
+        <tr>
+          <td>{{ policies.Priority }}</td>
+          <td>
+            <div>
+              <p-inputNumber
+                [min]="0"
+                [max]="100"
+                class="p-inputNumber"
+              ></p-inputNumber>
+
+              <p-dropdown
+                [options]="timeZones"
+                optionLabel="code"
+                class="p-dropDown"
+                [showClear]="false"
+              ></p-dropdown>
+            </div>
+          </td>
+          <td>
+            <div>
+              <p-inputNumber
+                [min]="0"
+                [max]="100"
+                class="p-inputNumber"
+              ></p-inputNumber>
+
+              <p-dropdown
+                [options]="timeZones"
+                optionLabel="code"
+                class="p-dropDown"
+                [showClear]="false"
+              ></p-dropdown>
+            </div>
+          </td>
+          <td>
+            <p-dropdown
+              [options]="workingHours"
+              optionLabel="Hours"
+              [showClear]="false"
+            ></p-dropdown>
+          </td>
+          <td>
+            <p-inputSwitch></p-inputSwitch>
+            <!-- <p-toggleButton
+                      onLabel="Yes"
+                      offLabel="No"
+                      offIcon="pi pi-times"
+                      onIcon="fa fa-check"
+                      iconPos="right"
+                      [(ngModel)]="toggle"
+                    ></p-toggleButton> -->
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div class="p-field p-col-12 md:col-12 p-md-3 mb-2">
+    What happens when the due date approaches / this SLA is violated?
+  </div>
+  <div
+    class="p-field p-col-12 md:col-12 p-md-3 mb-2"
+    style="background: #f5f7f9"
+  >
+    <h5>Set Escalation Rule when a ticket is not responded to on time</h5>
+    <div class="p-field p-col-12 md:col-1 p-md-4 mb-2 ml-10">
+      <button
+        pButton
+        label="Add"
+        type="button"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="addRule()"
+      ></button>
+    </div>
+    <p-table [value]="rules">
+      <ng-template pTemplate="body" let-rules>
+        <tr style="display: table-row">
+          <td>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-minus"
+              class="p-button-rounded p-button-danger"
+              (click)="deleteRule()"
+            ></button>
+          </td>
+          <td>
+            <p-dropdown
+              [options]="workingHours"
+              optionLabel="Hours"
+              [showClear]="false"
+            ></p-dropdown>
+          </td>
+          <td>
+            <p-dropdown
+              [options]="workingHours"
+              optionLabel="Hours"
+              [showClear]="false"
+            ></p-dropdown>
+          </td></tr
+      ></ng-template>
+    </p-table>
+    <h5>Set Escalation hirerachy when a ticket is not resolved on time</h5>
+    <div class="p-field p-col-12 md:col-1 p-md-4 mb-2 ml-10">
+      <button
+        pButton
+        pRipple
+        label="Add"
+        type="button"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="addMultipleRule()"
+      ></button>
+    </div>
+    <p-table [value]="multipleRule">
+      <ng-template pTemplate="body" let-multipleRule>
+        <tr style="display: table-row">
+          <td>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-minus"
+              class="p-button-rounded p-button-danger"
+              (click)="deleteMultipleRule()"
+            ></button>
+          </td>
+          <td>
+            <p-dropdown
+              [options]="workingHours"
+              optionLabel="Hours"
+              [showClear]="false"
+            ></p-dropdown>
+          </td>
+          <td>
+            <p-dropdown
+              [options]="workingHours"
+              optionLabel="Hours"
+              [showClear]="false"
+            ></p-dropdown>
+          </td></tr
+      ></ng-template>
+    </p-table>
+  </div>
+  <div class="p-field p-col-12 col-offset-11 md:col-1 p-md-4 mb-2 ml-10">
+    <button
+      pButton
+      label="Save"
+      type="submit"
+      style="float: right !important"
+    ></button>
+  </div>
+</form>

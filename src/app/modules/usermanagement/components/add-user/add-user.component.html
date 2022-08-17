@@ -1,0 +1,40 @@
+<div class="p-fluid p-grid">
+  <div class="col-12 p-md-3 mb-2">
+    <span class="p-float-label">
+      <input type="text" id="username" pInputText />
+      <label for="username">User Name</label>
+    </span>
+  </div>
+  <div class="col-12 p-md-3 mb-2">
+    <span class="p-float-label">
+      <input type="text" id="email" pInputText />
+      <label for="email">Email</label>
+    </span>
+  </div>
+  <div class="col-12 p-md-3 mb-2">
+    <span class="p-float-label">
+      <p-dropdown
+        inputId="dropdown"
+        [autoDisplayFirst]="false"
+        [options]="roles"
+        optionLabel="name"
+      ></p-dropdown>
+      <label for="dropdown">Role</label>
+    </span>
+  </div>
+  <div class="p-field grid p-md-3 mb-2">
+    <div class="col-1" style="margin-left: 10px; width: 4rem">
+      <label for="isactive">Is_active </label>
+    </div>
+    <div class="col-1">
+      <p-inputSwitch></p-inputSwitch>
+    </div>
+  </div>
+  <div class="p-field p-col-12 col-offset-11 md:col-1 p-md-4 mb-2 ml-10">
+    <p-button
+      label="Save"
+      type="submit"
+      style="float: right !important"
+    ></p-button>
+  </div>
+</div>

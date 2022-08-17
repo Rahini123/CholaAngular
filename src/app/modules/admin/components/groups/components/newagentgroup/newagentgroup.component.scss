@@ -1,0 +1,26 @@
+.admin-page {
+  background: #e5f2fd;
+  border: 1px solid #bbdcfe;
+  margin-right: 16px;
+  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-radius: 8px;
+  position: relative;
+  padding-top: 15px;
+  margin-top: -15px;
+}
+
+.arrow {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 11px solid #bbdcfe;
+}
+.col-3 {
+  flex: 0 0 auto;
+  padding: 0.5rem;
+  width: fit-content;
+}

@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-content>
+
+        <div class="grid p-6" style="margin-right: 0" *ngIf="!dashboardclone.reportStatus1">
+            <button pButton type="button" label="Band Salary" pRipple (click)="downloadFile()" >
+                <mat-icon aria-hidden="false"
+                    aria-label="Example download icon"
+                    style="font-size: large; margin-top: 8px">
+                    download</mat-icon>
+            </button>
+        <p-toast></p-toast>
+        </div>
+
+
+        <div class="grid p-6" style="margin-right: 0" *ngIf="!dashboardclone.reportStatus2">
+            <button pButton type="button" label="Traget Salary" pRipple (click)="downloadFile()" >
+                <mat-icon aria-hidden="false"
+                    aria-label="Example download icon"
+                    style="font-size: large; margin-top: 8px">
+                    download</mat-icon>
+            </button>
+        <p-toast></p-toast>
+        </div>
+
+
+        <div class="grid p-6" style="margin-right: 0" *ngIf="!dashboardclone.reportStatus3">
+            <button pButton type="button" label="Matrix Salary" pRipple (click)="downloadFile()" >
+                <mat-icon aria-hidden="false"
+                    aria-label="Example download icon"
+                    style="font-size: large; margin-top: 8px">
+                    download</mat-icon>
+            </button>
+        <p-toast></p-toast>
+        </div>
+    </mat-card-content>
+</mat-card>

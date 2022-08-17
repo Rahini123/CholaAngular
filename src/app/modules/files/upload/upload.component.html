@@ -1,0 +1,39 @@
+<p-tabView class="dark-panel" (onChange)="handleChange($event)">
+  <p-tabPanel header="Driver File" leftIcon="pi pi-fw pi-upload">
+
+    <mat-card class="mat-elevation-z5">
+      <div class="p-field col-offset-2 md:col-2 p-md-4 mb-2">
+        <mat-card-subtitle style="font-weight: bold;">Select an Report to Upload</mat-card-subtitle>
+        <mat-card-content>
+          <p-dropdown [options]="cities" [(ngModel)]="selectedCity1" placeholder="Select a Report" optionLabel="dname" [showClear]="false" (onChange)="onChange($event)"></p-dropdown>
+          <div *ngIf="!citynames">
+            <label class="btn btn-default p-0" id="label">
+              <input type="file" (change)="selectFile($event)" />
+            </label>
+            <div class="loading"> <mat-spinner *ngIf="isLoading | async"></mat-spinner></div>
+            <button
+              pButton
+              label="Upload"
+              type="submit"      
+              (click)="upload($event)"
+            >
+            <mat-icon aria-hidden="false"
+            aria-label="Example download icon"
+            style="font-size: large; margin-top: 8px">upload</mat-icon>
+          </button>
+            <p-toast></p-toast>
+          </div>
+        </mat-card-content>
+        <mat-card-footer>
+          <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
+        </mat-card-footer>
+      </div>
+    </mat-card>
+
+  </p-tabPanel>
+
+  <p-tabPanel header="Source-File" leftIcon="pi pi-fw pi-upload">
+    <app-demo-file-system></app-demo-file-system>
+  </p-tabPanel>
+
+</p-tabView>

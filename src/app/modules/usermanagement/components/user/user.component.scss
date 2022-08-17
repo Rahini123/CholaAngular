@@ -1,0 +1,11 @@
+
+
+:host ::ng-deep .dark-panel .p-tabview {
+  .p-tabview-nav {
+    width: 80rem;
+  }
+}
+:host ::ng-deep .p-tabview-nav-container {
+  position: relative;
+  padding-top: 10px;
+}

@@ -1,0 +1,13 @@
+.notify {
+  float: right;
+  color: #647a8e;
+}
+:host ::ng-deep.p-panel .p-panel-content {
+  border: none;
+}
+:host ::ng-deep.p-panel .p-panel-header {
+  border: none;
+}
+.sub {
+  color: #647a8e;
+}

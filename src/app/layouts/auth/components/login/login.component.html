@@ -1,0 +1,96 @@
+<div class="grid w-full h-screen pt-4 pl-4">
+  <div
+    class="col-4 flex flex-column justify-content-around surface-card shadow-2 radius"
+  >
+    <div class="flex align-items-center pl-8">
+      <img src="/assets/images/Chola-logo2.png" alt="Image" width="200" />
+    </div>
+    <span></span>
+    <div class="flex h-full align-items-center">
+      <section>
+        <div class="text-5xl text-primary font-bold mb-3">
+          CholaMandalam Investment
+        </div>
+        <p class="mt-0 mb-4 text-700 line-height-3">
+          Chola commenced business as an equipment financing company and has today emerged as a comprehensive financial services 
+          provider offering vehicle finance, home loans, home equity loans, SME loans, 
+          investment advisory services, stock broking and a variety of other financial services to customers
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <div class="col-7">
+    <form
+     style="margin-top: 5rem"
+     [formGroup]="loginFormGroup"
+     (ngSubmit)="handleClick($event)"
+   > 
+
+     <div class="text-center mb-5">
+       <img
+         src="assets/FocusR_1000px.png"
+         alt="Image"
+         height="50"
+         class="mb-3"
+       />
+       <div class="text-2xl font-bold mb-3">
+         <b>Sign in </b>
+       </div>
+     </div>
+     <div class="p-fluid p-grid">
+       <div class="p-field col-offset-2 col-9 mb-3">
+         <span class="p-float-label">
+           <input id="float-input" 
+           type="text" pInputText 
+           [(ngModel)]="loginData.usernameOremployeeId"
+           placeholder=""
+           formControlName="usernameOremployeeId">
+           <label for="usernameOremployeeId">Username Or EmployeeId</label>
+         </span>
+       </div>
+       <div class="p-field col-offset-2 col-9">
+         <span class="p-float-label">
+           <p-password
+             inputId="password"
+             formControlName="password"
+             [feedback]="false"
+             [(ngModel)]="loginData.password"
+             placeholder=""
+           ></p-password>
+           <label for="password">Password</label>
+         </span>
+       </div>
+       <div class="p-fluid grid mt-2">
+         <div class="p-field col-offset-2 col-4">
+           <p-checkbox
+             id="rememberme1"
+             [binary]="true"
+             styleClass="mr-2"
+           ></p-checkbox>
+           <label for="rememberme1">Remember me</label>
+         </div>
+         <div class="p-field col-offset-3 col-3">
+           <a
+             class="font-medium no-underline text-blue-500 text-right cursor-pointer"
+             >Forgot password?</a
+           >
+         </div>
+       </div>
+     </div>
+     <div class="p-field col-offset-2 col-9">
+       <button
+         pButton
+         pRipple
+         label="Sign In"
+         type="submit"
+         class="w-full"
+       ></button>
+     </div>
+  
+   </form>
+
+
+   <p-toast position="top-right" life="50000"></p-toast>
+ </div>
+</div>

@@ -1,0 +1,8 @@
+{
+    "/LoanProfitPortal/api/" : {
+        "target" :"http://secure.focusrtech.com:5050",
+        "secure" : false,
+        "loglevel" : "debug",
+        "changeOrigin" : true
+    }
+}

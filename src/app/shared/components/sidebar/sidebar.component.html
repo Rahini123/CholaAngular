@@ -1,0 +1,40 @@
+<p-sidebar
+  styleClass="custom-sidebar"
+  [(visible)]="opened"
+  position="left"
+  [showCloseIcon]="true"
+>
+  <!-- <div id="panelHeader" (click)='menuPanelClose()'> Click here to close menu </div> -->
+  <p-panelMenu
+    [transitionOptions]="'0ms'"
+    [model]="items"
+    styleClass="dark-panel custom-panel"
+  ></p-panelMenu>
+</p-sidebar>
+
+<p-sidebar
+  #sidebar
+  styleClass="custom-class"
+  ng-if="togglePanel == true"
+  [modal]="false"
+  [(visible)]="display"
+  position="left"
+  [showCloseIcon]="false"
+  [baseZIndex]="10000"
+>
+  <img src="assets/images/cholahandlogo.png" alt="Image" width="40" />
+  <div class="p-sidebar p-sidebar-header">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-angle-right"
+      class="p-button-rounded"
+      (click)="panelClick()"
+    ></button>
+  </div>
+
+  <!-- <i class="pi pi-angle-right" style="color: white" (click)="panelClick()"> </i> -->
+  <p-panelMenu styleClass="dark-panel custom-panel " [model]="iconItems">
+  </p-panelMenu>
+</p-sidebar>

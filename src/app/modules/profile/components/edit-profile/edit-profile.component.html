@@ -1,0 +1,84 @@
+<p-tabView class="dark-panel" (onChange)="handleChange($event)">
+  <p-tabPanel header="General" leftIcon="pi pi-fw pi-user-edit">
+    <div class="grid surface-card w-full">
+      <div class="col-4">
+        <div class="flex align-items-center">
+          <img src="assets/A.svg" alt="Image" class="img" />
+        </div>
+        <div class="text-left">Welcome :{{ username }}</div>
+        <span></span>
+      </div>
+      <p-divider layout="vertical"></p-divider>
+      <div class="col">
+        <form
+        style="margin-top: 5rem"
+        [formGroup]="editprofileFormGroup"
+        (ngSubmit)="profileCreate($event)">
+          <div class="p-fluid p-grid">
+         
+
+            <div class="p-field p-col-8 md:col-8 p-md-4 mb-2">
+              <span class="p-float-label">
+                <input type="text" id="firstname" pInputText 
+                [(ngModel)]="CreateProfile.firstName"
+                placeholder="Enter firstName"
+                formControlName="firstName" />
+                <label for="firstName">First Name</label>
+              </span>
+            </div>
+
+            <div class="p-field p-col-8 md:col-8 p-md-4 mb-2">
+              <span class="p-float-label">
+                <input type="text" id="lastname" pInputText 
+                [(ngModel)]="CreateProfile.lastName"
+                placeholder="Enter firstName"
+                formControlName="lastName" />
+                <label for="lastName">Last Name</label>
+              </span>
+            </div>
+            <div class="p-field p-col-8 md:col-8 p-md-3 mb-2">
+              <span class="p-float-label">
+                <input type="text" id="username" pInputText 
+                [(ngModel)]="CreateProfile.title"
+                placeholder="Enter title"
+                formControlName="title"/>
+                <label for="title">title</label>
+              </span>
+            </div>
+            <div class="p-field p-col-8 md:col-8 p-md-3 mb-2">
+              <span class="p-float-label">
+                <input type="text" id="phoneNumber" pInputText 
+                [(ngModel)]="CreateProfile.phoneNumber"
+                placeholder="Enter phoneNumber"
+                formControlName="phoneNumber"/>
+                <label for="phoneNumber">phoneNumber</label>
+              </span>
+            </div>
+            <div class="p-field p-col-8 md:col-8 p-md-3 mb-2">
+              <span class="p-float-label">
+                <input type="text" id="mobileNumber" pInputText 
+                [(ngModel)]="CreateProfile.mobileNumber"
+                placeholder="Enter mobileNumber"
+                formControlName="mobileNumber" />
+                <label for="mobileNumber">mobileNumber</label>
+              </span>
+            </div>
+            <div
+              class="p-field p-col-8 col-offset-6 md:col-2 p-md-4 mb-2 ml-10"
+            >
+              <button
+                pButton
+                label="Save"
+                type="submit"
+                style="float: right !important"
+              ></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel header="Change Password" leftIcon="pi pi-fw pi-lock">
+    <app-change-password></app-change-password>
+  </p-tabPanel>
+</p-tabView>

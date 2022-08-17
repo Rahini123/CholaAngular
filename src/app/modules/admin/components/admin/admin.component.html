@@ -1,0 +1,20 @@
+<p-tabView class="dark-panel" (onChange)="handleChange($event)">
+  <p-tabPanel header="SLA Policies" leftIcon="pi pi-fw pi-clock">
+    <app-sla-policy></app-sla-policy>
+  </p-tabPanel>
+  <p-tabPanel header="Agents" leftIcon="pi pi-fw pi-user">
+    <app-agentdashboard></app-agentdashboard>
+  </p-tabPanel>
+  <p-tabPanel header="Requesters" leftIcon="pi pi-fw pi-user">
+    <app-requesterdashboard></app-requesterdashboard>
+  </p-tabPanel>
+  <p-tabPanel header="Roles" leftIcon="pi pi-fw pi-user">
+    <app-rolesdashboard></app-rolesdashboard>
+  </p-tabPanel>
+  <p-tabPanel header="Groups" leftIcon="pi pi-fw pi-user">
+    <app-groupdashboard></app-groupdashboard>
+  </p-tabPanel>
+  <p-tabPanel header="Support Channels" leftIcon="pi pi-fw pi-external-link">
+    <app-email></app-email>
+  </p-tabPanel>
+</p-tabView>

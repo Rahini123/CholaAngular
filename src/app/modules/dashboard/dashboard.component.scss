@@ -1,0 +1,139 @@
+.grid-item-content {
+  max-width: 100%;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+  color: #475867;
+  font-weight: 600;
+  font-size: 18px;
+  vertical-align: middle;
+  line-height: 28px;
+}
+.dash-image img {
+  width: 60px;
+  height: 60px;
+}
+span.grid-item-content.dashboard-content
+{
+  width: 100%;
+  text-align: center;
+}
+span.dash-image {
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.content {
+  height: 7rem !important;
+  xwidth: 24.9rem;
+  margin-left: 4rem;
+  box-sizing: border-box;
+  margin-top: 1rem;
+  /* border-radius: 10%; */
+  border: 1px solid #cfd7df;
+  //box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
+  border-radius: 8px;
+}
+
+.onhover:hover {
+  cursor: pointer;
+  z-index: 9999;
+  animation: fadein 0.15s linear;
+  transition: all 0.35s;
+  animation-duration: 500ms;
+}
+.score {
+  color: #2c5cc5;
+  margin-left: 4rem;
+  margin-top: rem;
+  font-size: 30px;
+}
+
+.chart {
+  height: 24rem !important;
+  margin-left: 6rem;
+  box-sizing: border-box;
+  margin-top: 3rem;
+  border: 1px solid #cfd7df;
+  border-radius: 8px;
+  width: 24.9rem;
+  display: none;
+}
+.dough {
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+#chart {
+  max-width: 380px;
+  margin: 35px auto;
+  padding: 0;
+}
+
+.widget-title-content {
+  max-width: 100%;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+  color: #475867;
+  padding: 15px 0 0 24px;
+  margin-left: 0;
+  line-height: 17px;
+  font-weight: 600 !important ;
+  font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.slim-button {
+  box-sizing: border-box;
+  height: 32px;
+  padding: 4px 12px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background: linear-gradient(180deg, #fff 0%, #f5f7f9 100%);
+  border: 1px solid #cfd7df;
+  border-radius: 4px;
+  color: #12344d !important;
+  font-weight: 600;
+  margin-right: 8px;
+  font-family: inherit;
+}
+
+.health-list
+{
+  text-align: right;
+}
+
+.loading .mat-spinner.mat-progress-spinner.mat-spinner.mat-primary.mat-progress-spinner-indeterminate-animation.ng-star-inserted {
+
+  position: absolute;
+
+  left: 30%;
+
+  top: 50%;
+
+}
+.buttoncenter-grd {
+
+  text-align: center;
+
+}
+
+mat-card.mat-card.mat-focus-indicator {
+
+  /* padding: 0px; */
+
+  border: none;
+
+  box-shadow: none;
+
+}

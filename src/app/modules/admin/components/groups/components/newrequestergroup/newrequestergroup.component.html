@@ -1,0 +1,192 @@
+<form class="p-fluid p-grid">
+  <div class="p-field grid mt-3">
+    <div class="col-12">
+      <span class="p-float-label" styleClass="md-inputfield">
+        <input
+          type="text"
+          id="Requester Group Name"
+          pInputText
+          required="true"
+        />
+        <label for="requestergroupname"
+          >Name<span style="color: red">*</span></label
+        >
+      </span>
+    </div>
+  </div>
+  <div class="p-field grid mt-3">
+    <div class="col-12">
+      <span class="p-float-label" styleClass="md-inputfield">
+        <input
+          type="text"
+          id="Requester Group Description"
+          pInputText
+          required="true"
+        />
+        <label for="requestergroupdescription">Description</label>
+      </span>
+    </div>
+  </div>
+  <p-divider></p-divider>
+  <div class="p-field grid mt-3" *ngIf="memberdiv">
+    <div
+      class="col-5 surface-card p-4 shadow-2 border-round cursor-pointer"
+      (click)="hideDiv()"
+    >
+      <span class="req-group-link"
+        >Automatically Add Members based on rules</span
+      >
+      <section class="condition-group-desc">
+        Define rules to automatically add members based on their departrment,job
+        title, location, and other fields
+      </section>
+    </div>
+    <div class="col-1">
+      <span style="text-align: center"><h3>OR</h3> </span>
+    </div>
+    <div
+      class="col-5 surface-card p-4 shadow-2 border-round cursor-pointer"
+      (click)="hideNewDiv()"
+    >
+      <span class="req-group-link">choose members manually</span>
+      <section class="condition-group-desc">
+        Search and individually add every member
+      </section>
+    </div>
+  </div>
+  <div class="p-field grid" *ngIf="memberEntrydiv">
+    <div class="col-6">
+      <label for="agents" style="font-size: 15px; font-weight: 700"
+        >Requesters who match these rules are automatically added to the
+        group.</label
+      >
+    </div>
+  </div>
+  <div class="p-field grid enablecriteria mt-3" *ngIf="memberEntrydiv">
+    <div class="col-1" style="width: 3rem">
+      <label for="member">Match</label>
+    </div>
+    <div class="col-2">
+      <p-dropdown
+        [options]="conditiondropdown"
+        optionLabel="name"
+        [showClear]="false"
+      ></p-dropdown>
+    </div>
+    <div class="col-1" style="width: 10rem">
+      <label for="condition">of these condition</label>
+    </div>
+  </div>
+  <div class="p-field grid mt-0 enableaddcriteria" *ngIf="memberEntrydiv">
+    <div class="col-2" style="width: 11rem">
+      <button
+        pButton
+        pRipple
+        label="Add condition"
+        type="button"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="addMultipleMembers()"
+      ></button>
+    </div>
+  </div>
+  <div class="p-field grid mt-1 enableaddcriteria1" *ngIf="memberEntrydiv">
+    <div class="col-4">
+      <p-table [value]="members">
+        <ng-template pTemplate="body" let-member>
+          <tr style="display: table-row">
+            <td>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-minus"
+                class="p-button-rounded p-button-danger"
+                (click)="deleteMember()"
+              ></button>
+            </td>
+
+            <td></td></tr
+        ></ng-template>
+      </p-table>
+    </div>
+  </div>
+  <div class="p-field grid" *ngIf="memberNewEntrydiv">
+    <div class="col-6">
+      <label for="agents" style="font-size: 15px; font-weight: 700"
+        >Add New Members</label
+      >
+    </div>
+  </div>
+  <div class="p-field grid mt-0 enableaddcriteria" *ngIf="memberNewEntrydiv">
+    <div class="col-2" style="width: 11rem">
+      <button
+        pButton
+        pRipple
+        label="Add Member"
+        type="button"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="addMultipleMembers()"
+      ></button>
+    </div>
+  </div>
+  <div class="p-field grid mt-1 enableaddcriteria1" *ngIf="memberNewEntrydiv">
+    <div class="col-6">
+      <p-table [value]="members">
+        <ng-template pTemplate="body" let-member>
+          <tr style="display: table-row">
+            <td>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-minus"
+                class="p-button-rounded p-button-danger"
+                (click)="deleteMember()"
+              ></button>
+            </td>
+
+            <td>
+              <p-autoComplete
+                inputId="autocomplete"
+                placeholder="Search for requester's name or email"
+                [suggestions]="filteredMember"
+                (completeMethod)="searchMember($event)"
+                field="name"
+              ></p-autoComplete>
+            </td></tr
+        ></ng-template>
+      </p-table>
+    </div>
+  </div>
+  <div class="p-field grid mt-3" *ngIf="noMemberDiv">
+    <div class="col-6">
+      <label for="Member" style="font-size: 15px; font-weight: 700"
+        >Members</label
+      >
+    </div>
+  </div>
+  <div class="p-field grid" *ngIf="noMemberDiv">
+    <div class="col-10 member-table-head">
+      <span class="name">Name</span>
+      <span class="email">Primary Email</span>
+    </div>
+  </div>
+  <div class="p-field grid" *ngIf="noMemberDiv">
+    <div class="col-10 no-member-section">
+      <img src="/assets/requesterGroupEmptyState.svg" alt class="no-req-img" />
+      <div class="no-req-des">No members</div>
+    </div>
+  </div>
+  <div class="p-field grid">
+    <div class="col-offset-11 col-1">
+      <button
+        pButton
+        label="Save"
+        type="submit"
+        style="float: right !important"
+      ></button>
+    </div>
+  </div>
+</form>

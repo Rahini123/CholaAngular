@@ -1,0 +1,32 @@
+<p>dropdown works!</p>
+<table>
+    <tr>
+        <tbody>
+            <tr *ngFor="let employee of employee">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+            </tr>
+        </tbody>
+    </tr>
+</table>
+<button onclick="dropdowndata(this)">Click</button>
+<select name="employee" onchange="dropdowndata()" class="form-control">
+    <option>==select===</option>
+    <option [value]="emp.id" *ngFor="let emp of employee">
+        {{emp.name}}
+    </option>
+</select>
+
+<form #f="ngForm">
+    <select name="state" ngModel>
+      <option value="" disabled>Choose a state</option>
+      <option *ngFor="let state of states" [ngValue]="state">
+        {{ state.abbrev }}
+      </option>
+    </select>
+  </form>
+  <p>Form value: {{ f.value | json }}</p>
+<!-- <select > 
+     <option value="0">--Select--</option> 
+     <option *ngFor="let employee of employee">  <td>{{employee.name}}</td></option>
+</select> -->

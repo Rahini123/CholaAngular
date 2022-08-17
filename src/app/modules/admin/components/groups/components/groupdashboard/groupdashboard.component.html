@@ -1,0 +1,14 @@
+<p-tabView class="group-panel z-0" (onChange)="handleChange($event)">
+  <p-tabPanel header="Agent Group">
+    <app-group></app-group>
+  </p-tabPanel>
+  <p-tabPanel header="Requester Group">
+    <app-group></app-group>
+  </p-tabPanel>
+  <p-tabPanel header="New Agent Group">
+    <app-newagentgroup></app-newagentgroup>
+  </p-tabPanel>
+  <p-tabPanel header="New Requester Group">
+    <app-newrequestergroup></app-newrequestergroup>
+  </p-tabPanel>
+</p-tabView>

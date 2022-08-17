@@ -1,0 +1,18 @@
+.page-title-container {
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  padding-left: 18px;
+  width: 30rem;
+}
+
+:host ::ng-deep {
+  .p-menubar {
+    // width: 100vw !important;
+    padding-left: 22rem;
+    padding-bottom: 1.5rem;
+    background: none;
+    border: none;
+  }
+}

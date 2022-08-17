@@ -1,0 +1,11 @@
+<p-tabView class="dark-panel" (onChange)="handleChange($event)">
+  <p-tabPanel header="General" leftIcon="pi pi-fw pi-user">
+    <app-requestergeneral></app-requestergeneral>
+  </p-tabPanel>
+  <p-tabPanel header="New Requester" leftIcon="pi pi-fw pi-user">
+    <app-newrequester></app-newrequester>
+  </p-tabPanel>
+  <p-tabPanel header="Import" leftIcon="pi pi-fw pi-angle-double-down">
+    <app-import></app-import>
+  </p-tabPanel>
+</p-tabView>

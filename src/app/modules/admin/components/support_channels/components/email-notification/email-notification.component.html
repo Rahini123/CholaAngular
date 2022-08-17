@@ -1,0 +1,152 @@
+<p-table
+  #dt
+  [value]="email_notifications"
+  [rows]="10"
+  [paginator]="true"
+  responsiveLayout="scroll"
+  [rowHover]="true"
+  dataKey="id"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [showCurrentPageReport]="true"
+  [globalFilterFields]="['notification_type']"
+>
+  <ng-template pTemplate="caption">
+    <div class="p-fluid p-field grid">
+      <div class="col-offset-8 col-4">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+            pInputText
+            type="text"
+            (input)="dt.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search..."
+          />
+        </span>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem"></th>
+      <th pSortableColumn="notification_type">
+        Notification Type <p-sortIcon field="notification_type"></p-sortIcon>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-email_notify let-expanded="expanded">
+    <tr>
+      <td>
+        <button
+          type="button"
+          pButton
+          pRipple
+          [pRowToggler]="email_notify"
+          class="p-button-text p-button-rounded p-button-plain"
+          [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+        ></button>
+      </td>
+      <td>{{ email_notify.notification_type }}</td>
+      <td></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="rowexpansion" let-email_notify>
+    <tr>
+      <td colspan="3">
+        <div class="p-p-3">
+          <p-table [value]="email_notify.notifications" dataKey="id">
+            <ng-template pTemplate="header">
+              <tr>
+                <th pSortableColumn="is_enable">
+                  <p-sortIcon field="is_enable"></p-sortIcon>
+                </th>
+                <th pSortableColumn="name">
+                  Notification Name<p-sortIcon field="name"></p-sortIcon>
+                </th>
+                <th style="width: 4rem"></th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-notification>
+              <tr>
+                <td><p-inputSwitch></p-inputSwitch></td>
+                <td>{{ notification.name }}</td>
+                <td>
+                  <button
+                    pButton
+                    pRipple
+                    icon="pi pi-pencil"
+                    style="margin-right: 3px"
+                    class="p-button-rounded p-button-success"
+                    (click)="editNotification(notification)"
+                  ></button>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<p-sidebar
+  #sidebar
+  [(visible)]="emailnotifybar"
+  position="right"
+  [style]="{ width: '45rem' }"
+  [showCloseIcon]="false"
+>
+  <p-panel>
+    <ng-template pTemplate="header">
+      {{ header }}
+    </ng-template>
+    <ng-template pTemplate="icons">
+      <button
+        pButton
+        class="p-panel-header-icon"
+        (click)="sidebar.close($event)"
+      >
+        <span class="pi pi-times"></span>
+      </button>
+    </ng-template>
+    <div class="notify">Notification <p-inputSwitch></p-inputSwitch></div>
+    <div style="color: #647a8e">Last Saved:</div>
+    <div class="p-fluid p-field grid mt-5">
+      <div class="col-12">
+        <span class="p-float-label">
+          <input type="text" id="subject" pInputText required="true" />
+          <label for="subject">Subject<span style="color: red">*</span></label>
+        </span>
+        <span class="sub">
+          To capture replies as ticket conversations, the ticket ID placeholder
+          should not be removed from the subject line
+        </span>
+      </div>
+    </div>
+    <div class="p-fluid p-field grid mt-5">
+      <div class="col-12">
+        <span class="p-float-label">
+          <textarea
+            id="float-input"
+            rows="5"
+            cols="30"
+            pInputTextarea
+          ></textarea>
+          <label for="float-input">Message</label>
+        </span>
+        <span>Supporting customers in multiple languages?</span>
+      </div>
+    </div>
+    <div class="p-fluid p-field grid">
+      <div class="col-offset-11 p-col-1">
+        <span style="width: 5rem">
+          <button
+            pButton
+            label="Save"
+            type="submit"
+            style="float: right !important"
+          ></button
+        ></span>
+      </div>
+    </div>
+  </p-panel>
+</p-sidebar>

@@ -1,0 +1,158 @@
+<form class="p-fluid p-grid">
+  <div class="p-field grid mt-3">
+    <div class="col-12">
+      <span class="p-float-label" styleClass="md-inputfield">
+        <input type="text" id="Group Name" pInputText required="true" />
+        <label for="groupname">Name<span style="color: red">*</span></label>
+      </span>
+      <span for="namedescription" style="color: #647a8e; font-size: 14px">
+        Name of the email that will be used in the ticket replies</span
+      >
+    </div>
+  </div>
+  <div class="p-field grid mt-3">
+    <div class="col-12">
+      <span class="p-float-label" styleClass="md-inputfield">
+        <input
+          type="text"
+          id="helpdeskemail"
+          pInputText
+          required="true"
+          value="sapsupport@focusrtech.com"
+        />
+        <label for="helpdeskemail"
+          >Your helpdesk email<span style="color: red">*</span></label
+        >
+      </span>
+      <span style="color: #647a8e; font-size: 14px">
+        This is also your Reply-to address eg. helpdesk@yourcompany.com</span
+      >
+    </div>
+  </div>
+  <div class="p-field grid mt-3">
+    <div class="col-12">
+      <span class="p-float-label" styleClass="md-inputfield">
+        <p-dropdown
+          [options]="agentdropdown"
+          optionLabel="name"
+          [showClear]="false"
+        ></p-dropdown>
+        <label for="assigntogroup"
+          >Assign to Group<span style="color: red">*</span></label
+        >
+      </span>
+      <span style="color: #647a8e; font-size: 14px">
+        New tickets to this support email will get automatically assigned to a
+        group</span
+      >
+    </div>
+  </div>
+  <div class="p-field grid mt-3">
+    <div class="col-12">
+      <label for="mailserver" style="font-weight: 500">Mail Server</label>
+      <div class="formgroup-inline mt-3">
+        <div class="field-radiobutton">
+          <p-radioButton
+            name="mailServer"
+            value="Default"
+            [(ngModel)]="selectedMailServer"
+            inputId="default"
+            (onClick)="handleDefaultclick()"
+          ></p-radioButton>
+          <label for="default">Default</label>
+        </div>
+        <div class="field-radiobutton">
+          <p-radioButton
+            name="mailServer"
+            value="Ownmailserver"
+            [(ngModel)]="selectedMailServer"
+            inputId="Ownmailserver"
+            (onClick)="handleOwnServerclick()"
+          ></p-radioButton>
+          <label for="Ownmailserver">Use your own mail server</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-field grid mt-3" *ngIf="defaultServerdiv">
+    <div class="col-12">
+      <span class="p-float-label" styleClass="md-inputfield">
+        <input
+          type="text"
+          id="forwardEmail"
+          pInputText
+          required="true"
+          style="background-color: #ebeef0"
+        />
+        <label for="forwardEmail" style="font-weight: 500"
+          >Forward your Emails to:</label
+        > </span
+      ><a
+        target="_blank"
+        href="https://support.freshservice.com/support/solutions/articles/154123-setting-up-your-support-email"
+      >
+        <span style="color: #647a8e; font-size: 14px; color: #2c5cc5">
+          How to convert your emails into tickets?</span
+        >
+      </a>
+    </div>
+  </div>
+  <div class="p-field grid mt-3" *ngIf="ownServerEntrydiv">
+    <div class="col-12">
+      <label for="mailserver" style="font-weight: 500">Email System</label>
+      <div class="formgroup-inline mt-3">
+        <div class="field-radiobutton">
+          <p-radioButton
+            name="emailSystem"
+            value="Incomingandoutgoing"
+            [(ngModel)]="selectedMailSystem"
+            inputId="Incomingandoutgoing"
+          ></p-radioButton>
+          <label for="Incomingandoutgoing">Incoming and Outgoing</label>
+        </div>
+        <div class="field-radiobutton">
+          <p-radioButton
+            name="emailSystem"
+            value="Outgoingonly"
+            [(ngModel)]="selectedMailSystem"
+            inputId="Outgoingonly"
+          ></p-radioButton>
+          <label for="Outgoingonly">Outgoing Only</label>
+        </div>
+      </div>
+      <div class="p-field-checkbox">
+        <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
+        <label for="binary"> Delete emails from server after fetching?</label>
+      </div>
+    </div>
+  </div>
+  <div class="p-field grid mt-3" *ngIf="ownServerEntrydiv">
+    <div class="col-12">
+      <label style="font-weight: 500">Email Service</label>
+    </div>
+    <span>
+      <p-button label="Sign in with Google" icon="pi pi-google"></p-button>
+    </span>
+    <span style="margin-left: 4rem">
+      <p-button
+        label="Sign in with microsoft"
+        icon="pi pi-microsoft"
+      ></p-button>
+    </span>
+    <span style="margin-left: 4rem">
+      <p-button label="Other" icon="pi pi-inbox"></p-button>
+    </span>
+  </div>
+  <div class="p-field grid" *ngIf="savediv">
+    <div class="col-offset-11 p-col-1">
+      <span style="width: 5rem">
+        <button
+          pButton
+          label="Save"
+          type="submit"
+          style="float: right !important"
+        ></button
+      ></span>
+    </div>
+  </div>
+</form>
